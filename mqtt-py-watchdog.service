@@ -1,0 +1,14 @@
+[Unit]
+Description=MQTT Python Watchdog Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/mqtt_py_watchdog
+Environment=PATH=/opt/mqtt_py_watchdog/.venv/bin:$PATH
+ExecStart=/opt/mqtt_py_watchdog/.venv/bin/python /opt/mqtt_py_watchdog/mqtt_py_watchdog.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

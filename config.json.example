@@ -1,0 +1,24 @@
+{
+    "log_level": "INFO",
+    "mqtt": {
+        "broker": "localhost",
+        "port": 1883,
+        "username": "mqtt_user",
+        "password": "your_password"
+    },
+    "watchdogs": [
+        {
+            "name": "Sensor A Watchdog",
+            "topic": "haus/sensor/a/heartbeat",
+            "interval": 45,
+            "action_cmd": "echo 'Alarm: Sensor A failure' >> mqtt_watchdog.log"
+        },
+        {
+            "name": "Device B Watchdog",
+            "topic": "garden/device_b/status",
+            "interval": 60,
+            "action_mqtt_topic": "system/alarm",
+            "action_mqtt_payload": "{\"device\": \"Device B\", \"status\": \"OFFLINE\"}"
+        }
+    ]
+}
