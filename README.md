@@ -53,7 +53,7 @@ Configure the watchdog in `config.json`:
             "name": "Device Name",         // Friendly name for the watchdog
             "topic": "device/heartbeat",   // Topic to monitor
             "interval": 60,                // Timeout in seconds
-            "action_cmd": "echo 'test' >> testalarm.log",       // Shell command to execute (optional)
+            "action_cmd": "/bin/systemctl restart sensor_service",       // Shell command to execute, use full path (optional)
         },
         {
             "name": "Device Name 2",       // Friendly name for the watchdog
